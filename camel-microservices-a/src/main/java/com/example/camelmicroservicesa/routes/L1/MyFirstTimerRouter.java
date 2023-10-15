@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class MyFirstTimerRouter extends RouteBuilder {
 
 	@Override
