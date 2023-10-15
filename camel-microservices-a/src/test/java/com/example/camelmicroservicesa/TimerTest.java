@@ -42,17 +42,19 @@ public class TimerTest {
 	}
 
 	@Test
-	void mockToAndFromEndpoint() throws Exception {
+	void mockFromAndToEndpoint() throws Exception {
 		String expectedBody = "My constant message";
 		mockEndpoint.expectedBodiesReceived(expectedBody);
 		mockEndpoint.expectedMinimumMessageCount(1);
 
+		// changing route definition using advice
 		AdviceWith.adviceWith(camelContext, "timerRouteTest", routeBuilder -> {
 			routeBuilder.replaceFromWith("direct:startTimerTest");
 			routeBuilder.weaveByToUri("log:*").replace().to(mockEndpoint);
 		});
 
 		camelContext.start();
+		// trigger the direct route
 		producerTemplate.sendBody("direct:startTimerTest", "ABCD");
 		mockEndpoint.assertIsSatisfied();
 	}
