@@ -363,3 +363,8 @@ The choice between these methods depends on whether you specifically want to acc
 - In Apache Camel, exchange.getOut().getBody() is used to access the body of the message that will be sent as the output of the current exchange. It represents the body of the response that your Camel route is preparing to send as a result of processing.
 - If you want to access or manipulate something in the response that has not yet been set or returned, you can use exchange.getOut() to work with the entire response message, and then set its body, headers, and properties as needed.
 
+#### wireTap
+- wireTap forks a separate route flow on a separate thread.
+
+### Error Handling
+- https://camel.apache.org/manual/exception-clause.html
