@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 // When the processing of the current endpoint (the one returned by the method or bean) is complete, the method or bean is invoked again to determine the next routing destination.
 // If the method or bean returns a non-null URI, the message is routed to that endpoint, and the processing continues with the corresponding route.
 // Each step we invoke some business logic, decide what's the next step, execute that step, and then again execute the business logic to determine the next step
-@Component
+//@Component
 public class DynamicRoutingPattern extends RouteBuilder {
 
 	@Autowired

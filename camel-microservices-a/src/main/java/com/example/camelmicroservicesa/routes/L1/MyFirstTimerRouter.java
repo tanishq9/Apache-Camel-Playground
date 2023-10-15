@@ -2,8 +2,9 @@ package com.example.camelmicroservicesa.routes.L1;
 
 import java.time.LocalDateTime;
 import org.apache.camel.builder.RouteBuilder;
+import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class MyFirstTimerRouter extends RouteBuilder {
 
 	@Override
@@ -18,8 +19,9 @@ public class MyFirstTimerRouter extends RouteBuilder {
 		// Exchange[ExchangePattern: InOnly, BodyType: null, Body: [Body is null]]
 
 		from("timer:first-timer") // timer
-				//.transform().constant("My constant message")
-				.transform().constant("Time now is: " + LocalDateTime.now()) // the constant created here will be used throughout
+				.routeId("timerRouteTest")
+				.transform().constant("My constant message")
+				//.transform().constant("Time now is: " + LocalDateTime.now()) // the constant created here will be used throughout
 				.to("log:first-timer22"); // log
 
 		// Route: route1 started and consuming from: timer://first-timer
