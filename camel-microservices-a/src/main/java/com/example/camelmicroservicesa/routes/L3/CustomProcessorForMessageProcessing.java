@@ -22,7 +22,8 @@ public class CustomProcessorForMessageProcessing extends RouteBuilder {
 					System.out.println("Current message: " + exchange.getMessage().getBody());
 					System.out.println("Current exchange-out: " + exchange.getOut().getBody());
 					System.out.println("---------");
-					exchange.getOut().setBody("ABCD");
+					//exchange.getOut().setBody("ABCD");
+					exchange.getMessage().setBody("ABCD");
 					System.out.println("Current exchange-in: " + exchange.getIn().getBody());
 					System.out.println("Current message: " + exchange.getMessage().getBody());
 					System.out.println("Current exchange-out: " + exchange.getOut().getBody());
